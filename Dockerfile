@@ -2,18 +2,18 @@
 FROM resin/rpi-raspbian:wheezy
 
 # Maintainer info
-MAINTAINER Adrian Moreno <adrian.moreno@devcows.com>
+MAINTAINER Peter Erdos <erdos.peter.bme@gmail.com>
 
 # Update and upgrade
 RUN apt-get update
 RUN apt-get -y upgrade
 
-# Install prerequisites
-RUN apt-get install -y python git-core
+RUN apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libxml2-dev python python-pip python-dev build-essential -y
+RUN pip install --upgrade lxml cryptography pyopenssl
 
 # Install CouchPotato
 RUN cd /opt && \
-  git clone https://github.com/RuudBurger/CouchPotatoServer.git
+  git clone https://github.com/CouchPotato/CouchPotatoServer.git
 
 # Expose port
 EXPOSE 5050
