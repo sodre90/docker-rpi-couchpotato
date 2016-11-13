@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 RUN apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libxml2-dev python python-pip python-dev build-essential -y
-RUN pip install --upgrade lxml cryptography pyopenssl
+RUN pip install lxml cryptography pyopenssl
 
 # Install CouchPotato
 RUN cd /opt && \
